@@ -245,4 +245,18 @@ document.addEventListener("DOMContentLoaded", function() {
             printWindow.document.close();
         });
     }
+
+    // =========================================================================
+    // โค้ดส่วนที่เพิ่มใหม่ล่าสุด (เลื่อนหน้าจออัตโนมัติเมื่อกดเปิดปฏิทินบนมือถือ)
+    // =========================================================================
+    if (btnToggleCalendar && calendarSection) {
+        btnToggleCalendar.addEventListener("click", function() {
+            // เช็คว่าถ้าปฏิทินแสดงขึ้นมาแล้ว ให้หน่วงเวลาเล็กน้อยแล้วเลื่อนหน้าจอลงมา
+            if (calendarSection.style.display === "block") {
+                setTimeout(() => {
+                    calendarSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 100);
+            }
+        });
+    }
 });

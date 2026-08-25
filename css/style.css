@@ -177,3 +177,28 @@ input[type="text"], input[type="date"], input[type="time"], input[type="number"]
 .event-indicator {
     flex-shrink: 0;                 /* ป้องกันไม่ให้กล่องข้อความโดนบีบเมื่อมีคิวเยอะ */
 }
+
+/* =======================================================
+   ปรับแต่งแถบเมนูบนมือถือ (Media Query) เพิ่มใหม่ล่าสุด
+======================================================= */
+@media (max-width: 600px) {
+    .top-actions {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    
+    #btnToggleCalendar {
+        width: 100% !important;
+        justify-content: center;
+    }
+
+    .print-inline {
+        border-left: none !important;
+        padding-left: 0 !important;
+        border-top: 1px solid #ccc;
+        padding-top: 12px;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
