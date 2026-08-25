@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าหลัก - ระบบจองสถานที่</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://mahidol.ac.th/temp/2019/06/logo-mahidol.png" alt="Mahidol Logo">
+        </div>
+        <h1>ระบบจองสถานที่และห้องประชุม</h1>
+        <h2>มหาวิทยาลัยมหิดล</h2>
+        <p class="text-center">กรุณาเลือกอาคารที่ท่านต้องการใช้บริการ</p>
+        
+        <a href="siriwittaya.html" class="btn">อาคารสิริวิทยา</a>
+        <a href="learning_center.html" class="btn">ศูนย์การเรียนรู้มหิดล (MLC)</a>
+        <a href="prince_mahidol_hall.html" class="btn">มหิดลสิทธาคาร</a>
+
+        <!-- ส่วนของปฏิทินที่เพิ่มเข้ามา -->
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prevMonth">&lt;</button>
+                <h3 id="monthYear"></h3>
+                <button id="nextMonth">&gt;</button>
+            </div>
+            <div class="calendar-days">
+                <div>อา</div><div>จ</div><div>อ</div><div>พ</div><div>พฤ</div><div>ศ</div><div>ส</div>
+            </div>
+            <div class="calendar-dates" id="calendarDates"></div>
+        </div>
+        <!-- สิ้นสุดส่วนของปฏิทิน -->
+
+    </div>
+    
+    <script src="js/config.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

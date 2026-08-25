@@ -1,0 +1,151 @@
+:root {
+    --primary-color: #002454; /* Mahidol Blue */
+    --secondary-color: #F8B400; /* Mahidol Gold */
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Sarabun', sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 20px; }
+.container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+h1 { text-align: center; color: var(--primary-color); margin-bottom: 20px; font-size: 1.5rem; }
+h2 { text-align: center; color: var(--primary-color); margin-bottom: 20px; font-size: 1.2rem; }
+
+/* Helpers */
+.logo-container { text-align: center; margin-bottom: 20px; }
+.logo-container img { width: 100px; }
+.text-center { text-align: center; margin-bottom: 20px; color: #666; }
+
+/* Buttons */
+.btn { display: block; width: 100%; padding: 15px; background: var(--primary-color); color: white; text-align: center; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; text-decoration: none; margin-bottom: 15px; transition: background 0.3s; }
+.btn:hover { background: #001a3d; }
+.btn-back { background: #ccc; color: #333; margin-top: 20px; }
+.btn-back:hover { background: #bbb; }
+
+/* Forms */
+.form-group { margin-bottom: 15px; }
+.form-row { display: flex; gap: 10px; }
+.form-row .form-group { flex: 1; }
+
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+input[type="text"], input[type="date"], input[type="time"], input[type="number"], select, textarea {
+    width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;
+}
+.loader { display: none; text-align: center; margin-top: 10px; color: var(--primary-color); font-weight: bold; }
+/* ===============================
+   Calendar Styles (เพิ่มใหม่)
+=============================== */
+.calendar-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+.calendar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+.calendar-header button {
+    background: #f0f0f0;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calendar-header button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+.calendar-dates div {
+    text-align: center;
+    padding: 10px 0;
+    background: #f9f9f9;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 0.9rem;
+}
+.calendar-dates div:hover:not(.empty) {
+    background: var(--secondary-color);
+    color: #fff;
+}
+.calendar-dates .today {
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: bold;
+}
+.calendar-dates .empty {
+    background: transparent;
+    cursor: default;
+}
+/* ===============================
+   ปรับแต่งปฏิทินให้แสดงการจอง (Event)
+=============================== */
+.calendar-dates div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 80px; /* เพิ่มความสูงให้กล่องปฏิทิน */
+    padding: 5px;
+}
+.calendar-dates .empty {
+    min-height: auto;
+}
+.date-number {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    width: 100%;
+}
+.event-indicator {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 0.7rem;
+    padding: 3px 5px;
+    border-radius: 4px;
+    margin-bottom: 3px;
+    width: 95%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* ตัดข้อความที่ยาวเกินด้วย ... */
+    text-align: left;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.event-indicator:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    white-space: normal;
+    overflow: visible;
+    position: absolute;
+    z-index: 10;
+    width: max-content;
+    max-width: 150px;
+}
