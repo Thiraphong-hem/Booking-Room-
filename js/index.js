@@ -260,3 +260,30 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+// =========================================================================
+// โค้ดเพิ่มใหม่: ดักจับการจิ้ม (Click) ที่กล่องกิจกรรมเพื่อแสดง Popup รายละเอียด
+// =========================================================================
+document.addEventListener("click", function(e) {
+    // ตรวจสอบว่าสิ่งที่ถูกคลิกคือกล่องกิจกรรม (.event-indicator)
+    if (e.target && e.target.classList.contains("event-indicator")) {
+        const details = e.target.getAttribute("title");
+        
+        if (details) {
+            // ถ้ามีการใช้งาน SweetAlert ในโปรเจกต์
+            if (typeof Swal !== 'undefined') {
+                const formattedText = details.replace(/\n/g, '<br>'); // แปลงการเว้นบรรทัดให้ใช้กับ HTML ได้
+                Swal.fire({
+                    title: 'รายละเอียดการจอง',
+                    html: formattedText,
+                    icon: 'info',
+                    confirmButtonText: 'ปิด',
+                    confirmButtonColor: '#002454'
+                });
+            } else {
+                // ถ้าไม่มีใช้ Alert ธรรมดาของ Browser
+                alert(details);
+            }
+        }
+    }
+});
