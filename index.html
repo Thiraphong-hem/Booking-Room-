@@ -20,8 +20,26 @@
         <a href="learning_center.html" class="btn">ศูนย์การเรียนรู้มหิดล (MLC)</a>
         <a href="prince_mahidol_hall.html" class="btn">มหิดลสิทธาคาร</a>
 
-        <!-- ส่วนของปฏิทินที่เพิ่มเข้ามา -->
-        <div class="calendar-container">
+        <!-- ================= แถบเมนูด้านบน ================= -->
+        <div class="top-actions" style="display: flex; gap: 15px; margin-top: 25px; margin-bottom: 25px; flex-wrap: wrap; align-items: center; justify-content: center; background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+            
+            <!-- ปุ่มซ่อน/แสดงปฏิทิน -->
+            <button id="btnToggleCalendar" class="btn" style="background-color: #007bff; margin: 0; display: flex; align-items: center; gap: 8px; width: auto;">
+                📅 <span>ดูปฏิทินการจอง</span>
+            </button>
+            
+            <!-- ส่วนพิมพ์เอกสาร PDF (ย้ายมาไว้ด้านบน) -->
+            <div class="print-inline" style="display: flex; gap: 10px; align-items: center; border-left: 2px solid #ccc; padding-left: 15px;">
+                <label for="printDate" style="margin: 0; font-weight: bold; color: var(--primary-color);">🖨️ พิมพ์ฟอร์ม:</label>
+                <input type="date" id="printDate" style="padding: 6px; border: 1px solid #ccc; border-radius: 4px; width: auto;">
+                <button id="btnPrintByDate" class="btn" style="margin: 0; background-color: #28a745; padding: 6px 15px; width: auto;">สร้าง PDF</button>
+            </div>
+            
+        </div>
+        <!-- =============================================== -->
+
+        <!-- ส่วนของปฏิทินที่เพิ่มเข้ามา (ซ่อนไว้เป็นค่าเริ่มต้นโดยใช้ style="display: none;") -->
+        <div class="calendar-container" id="calendarSection" style="display: none;">
             <div class="calendar-header">
                 <button id="prevMonth">&lt;</button>
                 <h3 id="monthYear"></h3>

@@ -149,3 +149,31 @@ input[type="text"], input[type="date"], input[type="time"], input[type="number"]
     width: max-content;
     max-width: 150px;
 }
+
+/* =======================================================
+   ส่วนที่เพิ่มใหม่ (Override) เพื่อแก้ปัญหาช่องวันที่ขยายจนเบี้ยว
+   (โดยไม่ลบหรือแก้ไขโค้ดเดิมด้านบน)
+======================================================= */
+.calendar-dates div {
+    height: 100px !important;       /* บังคับล็อกความสูงคงที่ */
+    max-height: 100px !important; 
+    overflow-y: auto;               /* เพิ่ม Scrollbar หากรายการจองเยอะเกิน */
+    overflow-x: hidden;
+}
+
+.calendar-dates .empty {
+    height: 100px !important;       /* ให้ช่องว่างสูงเท่ากัน เพื่อความเป๊ะของตาราง */
+}
+
+/* ปรับแต่ง Scrollbar ในช่องวันที่ให้มีขนาดเล็ก ไม่เกะกะสายตา */
+.calendar-dates div::-webkit-scrollbar {
+    width: 3px;
+}
+.calendar-dates div::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 3px;
+}
+
+.event-indicator {
+    flex-shrink: 0;                 /* ป้องกันไม่ให้กล่องข้อความโดนบีบเมื่อมีคิวเยอะ */
+}
